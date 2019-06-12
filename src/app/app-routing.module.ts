@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CheckTutorial } from './providers/check-tutorial.service';
+import { TutorialPage } from './pages/tutorial/tutorial';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 const routes: Routes = [
   {
@@ -30,13 +33,19 @@ const routes: Routes = [
   },
   {
     path: 'tutorial',
-    loadChildren: './pages/tutorial/tutorial.module#TutorialModule',
-    canLoad: [CheckTutorial]
+    component: TutorialPage,
+    canLoad: [CheckTutorial],
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes),
+    CommonModule,
+    IonicModule,
+  ],
+  exports: [RouterModule],
+  declarations: [TutorialPage],
+  entryComponents: [TutorialPage],
 })
 export class AppRoutingModule {}
