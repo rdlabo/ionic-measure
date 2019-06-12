@@ -9,7 +9,8 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test --watch=false",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prod": "ng build --prod"
   },
   "husky": {
     "hooks": {
