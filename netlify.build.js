@@ -32,7 +32,7 @@ const execute = {
   createRobot: true, /** create robot.txt */
   createRedirects: true, /** create _redirects for redirect to www */
   createJavaScriptFileServerPush: true, /** create _headers for ServerPush  */
-  changeInlineStyleSheet: false  /** change styles inline */
+  changeInlineStyleSheet: true  /** change styles inline */
 };
 
 
