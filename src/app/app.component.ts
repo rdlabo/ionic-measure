@@ -60,7 +60,6 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.checkLoginStatus();
     this.listenForLoginEvents();
-
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
@@ -82,7 +81,6 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.menu.enable(false, 'dummy');
       this.menu.enable(true, 'primary');
     });
   }
