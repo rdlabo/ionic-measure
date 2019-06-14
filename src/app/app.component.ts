@@ -60,6 +60,8 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.checkLoginStatus();
     this.listenForLoginEvents();
+    this.menu.enable(true, 'primary');
+    this.menu.enable(false, 'dummy');
 
     this.swUpdate.available.subscribe(async res => {
       const toast = await this.toastCtrl.create({
@@ -118,7 +120,7 @@ export class AppComponent implements OnInit {
   }
 
   openTutorial() {
-    this.menu.enable(false);
+    this.menu.enable(false, 'primary');
     this.storage.set('ion_did_tutorial', false);
     this.router.navigateByUrl('/tutorial');
   }
