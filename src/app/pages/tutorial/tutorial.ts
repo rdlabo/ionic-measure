@@ -40,11 +40,11 @@ export class TutorialPage {
       }
     });
 
-    this.menu.enable(false, 'primary');
+    this.menu.enable(false);
   }
 
   ionViewDidLeave() {
     // enable the root left menu when leaving the tutorial page
-    this.menu.enable(true, 'primary');
+    this.menu.enable(true);
   }
 }
