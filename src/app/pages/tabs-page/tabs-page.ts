@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import {MenuController} from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   templateUrl: 'tabs-page.html'
 })
-export class TabsPage {
+export class TabsPage implements OnInit {
   constructor(
     private menu: MenuController,
   ) {}
-  ionViewWillEnter() {
+  ngOnInit() {
     this.menu.enable(true, 'primary').then(
       () => console.log('menu enable'),
     );
