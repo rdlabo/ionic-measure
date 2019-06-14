@@ -54,7 +54,7 @@
     </ion-item-group>
   </ion-list>
 
-  <ion-list-header [hidden]="shownSessions > 0">
+  <ion-list-header *ngIf="shownSessions === 0">
     No Sessions Found
   </ion-list-header>
 

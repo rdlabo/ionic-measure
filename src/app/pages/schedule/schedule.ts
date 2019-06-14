@@ -21,6 +21,7 @@ export class SchedulePage implements OnInit {
   excludeTracks: any = [];
   shownSessions: any = [];
   groups: any = [];
+  ready = false;
   confDate: string;
 
   constructor(
@@ -31,19 +32,23 @@ export class SchedulePage implements OnInit {
     public router: Router,
     public toastCtrl: ToastController,
     public user: UserData
-  ) { }
-
-  ngOnInit() {
-    this.updateSchedule();
+  ) {
+    this.updateSchedule('init');
   }
 
-  updateSchedule() {
+  ngOnInit() {}
+
+  updateSchedule(state = 'running') {
+    if (state === 'running' && !this.ready) {
+      return;
+    }
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
       this.scheduleList.closeSlidingItems();
     }
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
+      this.ready = true;
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
@@ -59,6 +64,7 @@ export class SchedulePage implements OnInit {
     const { data } = await modal.onWillDismiss();
     if (data) {
       this.excludeTracks = data;
+      console.log(1);
       this.updateSchedule();
     }
   }
@@ -107,6 +113,8 @@ export class SchedulePage implements OnInit {
           handler: () => {
             // they want to remove this session from their favorites
             this.user.removeFavorite(sessionData.name);
+
+            console.log(2);
             this.updateSchedule();
 
             // close the sliding item and hide the option buttons
