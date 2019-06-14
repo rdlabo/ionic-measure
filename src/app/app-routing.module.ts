@@ -42,7 +42,7 @@ const routes: Routes = [
               },
               {
                 path: 'session/:sessionId',
-                loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
+                loadChildren: './pages/session-detail/session-detail.module#SessionDetailModule'
               }
             ]
           },
@@ -51,15 +51,15 @@ const routes: Routes = [
             children: [
               {
                 path: '',
-                loadChildren: '../speaker-list/speaker-list.module#SpeakerListModule'
+                loadChildren: './pages/speaker-list/speaker-list.module#SpeakerListModule'
               },
               {
                 path: 'session/:sessionId',
-                loadChildren: '../session-detail/session-detail.module#SessionDetailModule'
+                loadChildren: './pages/session-detail/session-detail.module#SessionDetailModule'
               },
               {
                 path: 'speaker-details/:speakerId',
-                loadChildren: '../speaker-detail/speaker-detail.module#SpeakerDetailModule'
+                loadChildren: './pages/speaker-detail/speaker-detail.module#SpeakerDetailModule'
               }
             ]
           },
@@ -68,7 +68,7 @@ const routes: Routes = [
             children: [
               {
                 path: '',
-                loadChildren: '../map/map.module#MapModule'
+                loadChildren: './pages/map/map.module#MapModule'
               }
             ]
           },
@@ -77,7 +77,7 @@ const routes: Routes = [
             children: [
               {
                 path: '',
-                loadChildren: '../about/about.module#AboutModule'
+                loadChildren: './pages/about/about.module#AboutModule'
               }
             ]
           },
