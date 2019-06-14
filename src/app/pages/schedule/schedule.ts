@@ -32,11 +32,11 @@ export class SchedulePage implements OnInit {
     public router: Router,
     public toastCtrl: ToastController,
     public user: UserData
-  ) { }
-
-  ngOnInit() {
+  ) {
     this.updateSchedule('init');
   }
+
+  ngOnInit() {}
 
   updateSchedule(state = 'running') {
     if (state === 'running' && !this.ready) {
